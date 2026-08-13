@@ -39,10 +39,10 @@ import { useAuthUser } from "@/hooks/use-auth-user";
 import { openAuthModal } from "@/lib/auth-modal";
 import { setPendingAction } from "@/lib/pending-action";
 import type { ShopModule } from "@/lib/shop.functions";
-import heroSchoolAsset from "@/assets/hero-school.png.asset.json";
-import heroMedicalAsset from "@/assets/hero-medical.png.asset.json";
-import heroCollegeAsset from "@/assets/hero-college.png.asset.json";
-import heroAccessoriesAsset from "@/assets/hero-accessories.png.asset.json";
+import heroSchool from "@/assets/hero-school.png";
+import heroMedical from "@/assets/hero-medical.png";
+import heroCollege from "@/assets/hero-college.png";
+import heroAccessories from "@/assets/hero-accessories.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -168,13 +168,13 @@ function Home() {
               {/* Mobile / tablet image strip */}
               <div className="mt-8 grid grid-cols-3 gap-2 sm:gap-3 lg:hidden">
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-elegant">
-                  <img src={heroSchoolAsset.url} alt="School uniform by Alkausar" loading="eager" className="h-full w-full object-cover" />
+                  <img src={heroSchool} alt="School uniform by Alkausar" loading="eager" className="h-full w-full object-cover" />
                 </div>
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-elegant">
-                  <img src={heroMedicalAsset.url} alt="Medical uniform by Alkausar" loading="lazy" className="h-full w-full object-cover" />
+                  <img src={heroMedical} alt="Medical uniform by Alkausar" loading="lazy" className="h-full w-full object-cover" />
                 </div>
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-elegant">
-                  <img src={heroCollegeAsset.url} alt="College uniform by Alkausar" loading="lazy" className="h-full w-full object-cover" />
+                  <img src={heroCollege} alt="College uniform by Alkausar" loading="lazy" className="h-full w-full object-cover" />
                 </div>
               </div>
 
@@ -182,16 +182,16 @@ function Home() {
 
             <div className="relative h-[480px] lg:h-[600px] hidden lg:block">
               <div className="absolute top-0 right-8 w-[62%] h-[65%] rotate-[3deg] rounded-3xl overflow-hidden shadow-elegant ring-1 ring-white/10">
-                <img src={heroSchoolAsset.url} alt="School uniform by Alkausar" loading="eager" className="h-full w-full object-cover" />
+                <img src={heroSchool} alt="School uniform by Alkausar" loading="eager" className="h-full w-full object-cover" />
               </div>
               <div className="absolute top-[18%] left-0 w-[48%] h-[52%] -rotate-[4deg] rounded-3xl overflow-hidden shadow-elegant ring-1 ring-white/10">
-                <img src={heroMedicalAsset.url} alt="Medical uniform by Alkausar" loading="eager" className="h-full w-full object-cover" />
+                <img src={heroMedical} alt="Medical uniform by Alkausar" loading="eager" className="h-full w-full object-cover" />
               </div>
               <div className="absolute bottom-0 right-0 w-[44%] h-[38%] rotate-[2deg] rounded-3xl overflow-hidden shadow-elegant ring-1 ring-white/10">
-                <img src={heroCollegeAsset.url} alt="College uniform by Alkausar" loading="eager" className="h-full w-full object-cover" />
+                <img src={heroCollege} alt="College uniform by Alkausar" loading="eager" className="h-full w-full object-cover" />
               </div>
               <div className="absolute bottom-8 left-12 w-[32%] h-[28%] -rotate-[6deg] rounded-3xl overflow-hidden shadow-elegant ring-1 ring-white/10">
-                <img src={heroAccessoriesAsset.url} alt="Accessories by Alkausar" loading="eager" className="h-full w-full object-cover" />
+                <img src={heroAccessories} alt="Accessories by Alkausar" loading="eager" className="h-full w-full object-cover" />
               </div>
               <div className="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-[#CF0A0A]/30 blur-3xl" />
               <div className="absolute -bottom-8 -left-8 w-56 h-56 rounded-full bg-[#DC5F00]/25 blur-3xl" />
