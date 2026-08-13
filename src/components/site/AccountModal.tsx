@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { lovable } from "@/integrations/lovable";
+import { supabase } from "@/integrations/supabase/client";
 import { useServerFn } from "@tanstack/react-start";
 import { useNavigate } from "@tanstack/react-router";
 import { checkEmail, adminLogin, type EmailCheckResult } from "@/lib/admin-auth.functions";
@@ -55,18 +55,17 @@ export function AccountModal({
       );
     } catch {}
     setLoading(true);
-    const result = await lovable.auth.signInWithOAuth("google", {
-      redirect_uri: window.location.origin,
+    // Full-page redirect to Google; supabase-js detects the returned session
+    // from the URL on load, and __root.tsx's onAuthStateChange listener
+    // handles the welcome toast + return-path navigation from there.
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: { redirectTo: window.location.origin },
     });
-    if (result.error) {
+    if (error) {
       setLoading(false);
       toast.error("Google sign-in failed. Please try again.");
-      return;
     }
-    if (result.redirected) return;
-    // Popup flow: session set; the root auth listener handles greeting + redirect.
-    setLoading(false);
-    onOpenChange(false);
   };
 
   const submitEmail = async (e: React.FormEvent) => {
