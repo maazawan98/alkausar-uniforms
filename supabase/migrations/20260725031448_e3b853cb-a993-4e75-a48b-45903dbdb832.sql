@@ -1,0 +1,1 @@
+ALTER TABLE public.school_categories ADD COLUMN IF NOT EXISTS show_on_homepage BOOLEAN NOT NULL DEFAULT false;

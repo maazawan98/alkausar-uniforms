@@ -1,0 +1,1 @@
+CREATE POLICY "College product classes server-managed" ON public.college_product_classes TO authenticated USING (false) WITH CHECK (false);

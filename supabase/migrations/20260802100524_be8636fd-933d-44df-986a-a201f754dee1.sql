@@ -1,0 +1,1 @@
+ALTER TABLE public.customer_cart ADD COLUMN IF NOT EXISTS product_type text;
